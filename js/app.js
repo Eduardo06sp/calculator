@@ -84,16 +84,19 @@ function checkOperands(e) {
   let integerA = parseInt(operandA);
   let integerB = parseInt(operandB);
 
-  if (operandA && operandB) {
-    result = calculate(parseInt(operandA), parseInt(operandB), operator);
-    updateDisplay(result);
-    operandA = result;
-    operandB = null;
-  } else if (!(operandA) && !(calcDisplay.textContent === '')) {
+  if (!(operandA) && !(calcDisplay.textContent === '')) {
     operandA = calcDisplay.textContent;
     updateDisplay('');
   } else if (!(operandB) && !(calcDisplay.textContent === '')) {
     operandB = calcDisplay.textContent;
+  }
+
+  if (operandA && operandB && (e.target.textContent === '=')) {
+    result = calculate(parseInt(operandA), parseInt(operandB), operator);
+    updateDisplay(result);
+    operandA = null;
+    operandB = null;
+  } else if (operandA && operandB) {
     result = calculate(parseInt(operandA), parseInt(operandB), operator);
     updateDisplay(result);
     operandA = result;
