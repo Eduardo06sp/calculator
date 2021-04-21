@@ -96,6 +96,9 @@ function checkOperands(e) {
     updateDisplay(result);
     operandA = null;
     operandB = null;
+  } else if (e.target.textContent === '=') {
+    operandA = null;
+    operandB = null;
   } else if (operandA && operandB) {
     result = calculate(parseInt(operandA), parseInt(operandB), operator);
     updateDisplay(result);
