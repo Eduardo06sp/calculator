@@ -71,7 +71,35 @@ function validateNumber(number) {
   }
 }
 
+const calcDisplay = document.querySelector('.display-content');
+
 function updateDisplay(content) {
-  const calcDisplay = document.querySelector('.display-content');
   calcDisplay.textContent = content;
+}
+
+const operatorButtons = document.querySelector('.operators');
+operatorButtons.addEventListener('mousedown', checkOperands);
+
+function checkOperands(e) {
+  let integerA = parseInt(operandA);
+  let integerB = parseInt(operandB);
+
+  if (operandA && operandB) {
+    result = calculate(parseInt(operandA), parseInt(operandB), operator);
+    updateDisplay(result);
+    operandA = result;
+    operandB = null;
+  } else if (!(operandA) && !(calcDisplay.textContent === '')) {
+    operandA = calcDisplay.textContent;
+    updateDisplay('');
+  } else if (!(operandB) && !(calcDisplay.textContent === '')) {
+    operandB = calcDisplay.textContent;
+    result = calculate(parseInt(operandA), parseInt(operandB), operator);
+    updateDisplay(result);
+    operandA = result;
+    operandB = null;
+  }
+
+  operator = e.target.textContent;
+  result = '';
 }
