@@ -21,18 +21,26 @@ function calculate(a, b, operator) {
 	return 'Can\'t divide by 0!';
       }
 
-      return divide(a, b);
+      return round(divide(a, b));
       break;
     case '×':
-      return multiply(a, b);
+      return round(multiply(a, b));
       break;
     case '−':
-      return subtract(a, b);
+      return round(subtract(a, b));
       break;
     case '+':
-      return add(a, b);
+      return round(add(a, b));
       break;
   }
+}
+
+function round(num) {
+  if (Math.floor(num) === num) {
+    return num;
+  }
+
+  return num.toFixed(2);
 }
 
 let operandA = null;
@@ -53,7 +61,7 @@ function updateNumberDisplayed(e) {
 }
 
 function validateNumber(number) {
-  let integer = parseInt(number);
+  let integer = parseFloat(number);
 
   if (integer === 1 ||
       integer === 2 ||
@@ -81,8 +89,6 @@ const operatorButtons = document.querySelector('.operators');
 operatorButtons.addEventListener('mousedown', checkOperands);
 
 function checkOperands(e) {
-  let integerA = parseInt(operandA);
-  let integerB = parseInt(operandB);
 
   if (!(operandA) && !(calcDisplay.textContent === '')) {
     operandA = calcDisplay.textContent;
@@ -92,7 +98,7 @@ function checkOperands(e) {
   }
 
   if (operandA && operandB && (e.target.textContent === '=')) {
-    result = calculate(parseInt(operandA), parseInt(operandB), operator);
+    result = calculate(parseFloat(operandA), parseFloat(operandB), operator);
     updateDisplay(result);
     operandA = null;
     operandB = null;
@@ -100,7 +106,7 @@ function checkOperands(e) {
     operandA = null;
     operandB = null;
   } else if (operandA && operandB) {
-    result = calculate(parseInt(operandA), parseInt(operandB), operator);
+    result = calculate(parseFloat(operandA), parseFloat(operandB), operator);
     updateDisplay(result);
     operandA = result;
     operandB = null;
