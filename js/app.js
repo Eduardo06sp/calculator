@@ -57,6 +57,9 @@ function updateNumberDisplayed(e) {
   if (validateNumber(number)) {
     result += number;
     updateDisplay(result);
+  } else if (number === 'Del' || number === 'Backspace') {
+    result = result.slice(0, -1);
+    updateDisplay(result);
   }
 }
 
