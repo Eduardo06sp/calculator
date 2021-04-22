@@ -60,6 +60,13 @@ function updateNumberDisplayed(e) {
   } else if (number === 'Del' || number === 'Backspace') {
     result = result.slice(0, -1);
     updateDisplay(result);
+  } else if (number === '.') {
+    if (calcDisplay.textContent.indexOf('.') === -1) {
+      result += number;
+      updateDisplay(result);
+    } else {
+      return;
+    }
   }
 }
 
