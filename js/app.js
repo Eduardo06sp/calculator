@@ -48,8 +48,10 @@ let operandB = null;
 let operator = '';
 let result = '';
 
-const calculatorNumbers = document.querySelector('.numbers');
-calculatorNumbers.addEventListener('mousedown', updateNumberDisplayed);
+const calculatorNumbers = document.querySelectorAll('.number');
+for (let el of calculatorNumbers) {
+  el.addEventListener('mousedown', updateNumberDisplayed);
+}
 
 function updateNumberDisplayed(e) {
   let number = e.key || e.target.textContent;
@@ -95,8 +97,10 @@ function updateDisplay(content) {
   calcDisplay.textContent = content;
 }
 
-const operatorButtons = document.querySelector('.operators');
-operatorButtons.addEventListener('mousedown', checkOperands);
+const operatorButtons = document.querySelectorAll('.operator');
+for (let el of operatorButtons) {
+  el.addEventListener('mousedown', checkOperands);
+}
 
 function checkOperands(e) {
 
