@@ -1,3 +1,21 @@
+const calcDisplay = document.querySelector('.display-content');
+const calculatorNumbers = document.querySelectorAll('.number');
+const operatorButtons = document.querySelectorAll('.operator');
+let operandA = null;
+let operandB = null;
+let operator = '';
+let result = '';
+
+for (let el of operatorButtons) {
+  el.addEventListener('mousedown', checkOperands);
+}
+
+for (let el of calculatorNumbers) {
+  el.addEventListener('mousedown', updateNumberDisplayed);
+}
+
+document.addEventListener('keydown', logKey);
+
 function add(a, b) {
   return a + b;
 }
@@ -20,7 +38,6 @@ function calculate(a, b, operator) {
       if (b === 0) {
 	return 'Can\'t divide by 0!';
       }
-
       return round(divide(a, b));
       break;
     case '×':
@@ -39,23 +56,11 @@ function round(num) {
   if (Math.floor(num) === num) {
     return num;
   }
-
   return num.toFixed(2);
-}
-
-let operandA = null;
-let operandB = null;
-let operator = '';
-let result = '';
-
-const calculatorNumbers = document.querySelectorAll('.number');
-for (let el of calculatorNumbers) {
-  el.addEventListener('mousedown', updateNumberDisplayed);
 }
 
 function updateNumberDisplayed(e) {
   let number = e.key || e.target.textContent;
-
   if (validateNumber(number)) {
     result += number;
     updateDisplay(result);
@@ -74,7 +79,6 @@ function updateNumberDisplayed(e) {
 
 function validateNumber(number) {
   let integer = parseFloat(number);
-
   if (integer === 1 ||
       integer === 2 ||
       integer === 3 ||
@@ -91,19 +95,11 @@ function validateNumber(number) {
   }
 }
 
-const calcDisplay = document.querySelector('.display-content');
-
 function updateDisplay(content) {
   calcDisplay.textContent = content;
 }
 
-const operatorButtons = document.querySelectorAll('.operator');
-for (let el of operatorButtons) {
-  el.addEventListener('mousedown', checkOperands);
-}
-
 function checkOperands(e) {
-
   if (e.target.textContent === 'C') {
     operandA = null;
     operandB = null;
@@ -112,7 +108,6 @@ function checkOperands(e) {
     updateDisplay(result);
     return;
   }
-
 
   if (!(operandA) && !(calcDisplay.textContent === '')) {
     operandA = calcDisplay.textContent;
@@ -138,7 +133,6 @@ function checkOperands(e) {
 
   if (e.key) {
     let key = e.key;
-
     switch (key) {
       case '/':
 	operator = '÷';
@@ -164,10 +158,8 @@ function checkOperands(e) {
   result = '';
 }
 
-document.addEventListener('keydown', logKey);
 function logKey(e) {
   let keyPressed = e.key;
-
   switch (keyPressed) {
     case '1':
     case '2':
