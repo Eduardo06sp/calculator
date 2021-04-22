@@ -90,6 +90,16 @@ operatorButtons.addEventListener('mousedown', checkOperands);
 
 function checkOperands(e) {
 
+  if (e.target.textContent === 'C') {
+    operandA = null;
+    operandB = null;
+    operator = '';
+    result = '';
+    updateDisplay(result);
+    return;
+  }
+
+
   if (!(operandA) && !(calcDisplay.textContent === '')) {
     operandA = calcDisplay.textContent;
     updateDisplay('');
