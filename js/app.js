@@ -136,6 +136,36 @@ function checkOperands(e) {
     operandB = null;
   }
 
-  operator = e.target.textContent;
+  operator = e.key || e.target.textContent;
   result = '';
+}
+
+document.addEventListener('keydown', logKey);
+function logKey(e) {
+  let keyPressed = e.key;
+
+  switch (keyPressed) {
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+    case '5':
+    case '6':
+    case '7':
+    case '8':
+    case '9':
+    case '.':
+    case '0':
+    case 'Backspace':
+      updateNumberDisplayed(e);
+      break;
+    case 'C':
+    case '/':
+    case '*':
+    case '-':
+    case '+':
+    case '=':
+      checkOperands(e);
+      break;
+  }
 }
