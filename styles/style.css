@@ -7,17 +7,23 @@ html, body {
   height: 100%;
 }
 
+body {
+  background-color: #B2DFDB;
+  font-family: Verdana, sans-serif;
+}
+
 .calculator-container {
-  border: 1px solid black;
   display: grid;
   grid-template-rows: 1fr 4fr;
-  height: 500px;
-  margin: 40px auto;
+  height: 450px;
+  margin: 80px auto;
   width: 400px;
 }
 
 .display {
   align-items: flex-end;
+  background-color: #FFFFFF;
+  color: #757575;
   display: flex;
   font-size: 2rem;
   justify-content: flex-end;
@@ -33,14 +39,35 @@ html, body {
   font-size: 1.5rem;
 }
 
+.number, .operator {
+  border: none;
+  color: #FFFFFF;
+}
+
 .numbers {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
+.number {
+  background-color: #757575;
+}
+
+.number:hover {
+  background-color: #848484;
+}
+
 .operators {
   display: grid;
   grid-template-rows: repeat(6, 1fr);
+}
+
+.operator {
+  background-color: #009688;
+}
+
+.operator:hover {
+  background-color: #00a898;
 }
 
 .keyboard-shortcuts {
