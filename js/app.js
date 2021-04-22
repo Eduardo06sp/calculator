@@ -121,7 +121,7 @@ function checkOperands(e) {
     operandB = calcDisplay.textContent;
   }
 
-  if (operandA && operandB && (e.target.textContent === '=')) {
+  if (operandA && operandB && (e.target.textContent === '=' || e.key === '=' || e.key === 'Enter')) {
     result = calculate(parseFloat(operandA), parseFloat(operandB), operator);
     updateDisplay(result);
     operandA = null;
@@ -136,7 +136,31 @@ function checkOperands(e) {
     operandB = null;
   }
 
-  operator = e.key || e.target.textContent;
+  if (e.key) {
+    let key = e.key;
+
+    switch (key) {
+      case '/':
+	operator = '÷';
+	break;
+      case '*':
+	operator = '×';
+	break;
+      case '-':
+	operator = '−';
+	break;
+      case 'Enter':
+	operator = '=';
+	break;
+      case 'C':
+      case '+':
+      case '=':
+	operator = key;
+	break;
+    }
+  } else {
+    operator = e.target.textContent;
+  }
   result = '';
 }
 
@@ -165,6 +189,7 @@ function logKey(e) {
     case '-':
     case '+':
     case '=':
+    case 'Enter':
       checkOperands(e);
       break;
   }
