@@ -85,3 +85,21 @@ body {
 .keyboard-shortcuts li {
   list-style-type: square;
 }
+
+@media screen and (max-width: 450px) {
+  .calculator-container {
+    height: 400px;
+    width: 350px;
+  }
+
+  .keyboard-shortcuts {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .calculator-container {
+    height: 350px;
+    width: 300px;
+  }
+}
