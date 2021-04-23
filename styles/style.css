@@ -27,9 +27,12 @@ body {
   color: #757575;
   display: flex;
   font-size: 2rem;
-  height: 40px;
   justify-content: flex-end;
   padding: 20px;
+}
+
+.display-content {
+  height: 40px;
 }
 
 .buttons-container {
