@@ -5,10 +5,10 @@ A simple program that imitates a calculator. The user inputs an expression to be
 Some useful knowledge I acquired includes:
 * Using **CSS Grid** to create clean layouts
 * Using **relative em units** for font sizes to improve compatibility with browser settings / **accessibility**
-* Continue utilizing a **plan-first** aproach to organize logic and approach difficult problems
-* Use **for...of** loops to drastically simplify looping through iterable objects
-* Set and use a **keyboard event listener**
-* Use **switch** statements
-* Use different methods for **integers** versus **floating-point** numbers
-* Maintain **mobile-friendly** site using media query breakpoints
-* Improve **accessibility** with keyboard support
+* Continuing to utilize a **plan-first** aproach to organize logic and approach difficult problems
+* Using **for...of** loops to drastically simplify looping through iterable objects
+* Setting and using a **keyboard event listener**
+* Using **switch** statements
+* Using different methods for **integers** versus **floating-point** numbers
+* Maintaining the site **mobile-friendly** with media query breakpoints
+* Improving **accessibility** with keyboard support
