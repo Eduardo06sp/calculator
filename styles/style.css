@@ -13,6 +13,7 @@ body {
 }
 
 .calculator-container {
+  box-shadow: 9px 9px 4px 1px #515151;
   display: grid;
   grid-template-rows: 1fr 4fr;
   height: 450px;
@@ -71,6 +72,16 @@ body {
 }
 
 .keyboard-shortcuts {
+  color: #212121;
   margin: 0 auto;
-  width: 80%;
+  width: 450px;
+}
+
+.keyboard-shortcuts h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.keyboard-shortcuts li {
+  list-style-type: square;
 }
